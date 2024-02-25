@@ -1,7 +1,8 @@
 // App.js or index.js
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ListComponent from './ListComponent';
+import  { useState } from 'react';
 //import bb8 from './Bb8.css';
 let names = ['Frontend', 'Backend', 'Fullstack', 'DevOps', 'QA'];
 
@@ -24,7 +25,62 @@ const NavBar = () => {
   );
 };
 
+const PopupMessageBox = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+
+
+  return (
+    <div >
+      <button onClick={openPopup}>Open Popup</button>
+      {showPopup && (
+        <div className="popup-container">
+          <div className="popup-arrow"></div>
+          <div className="popup-box">
+            <p>Motivation!</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ProgressCard = ({skill}) => (
+  <div class="mt-6 space-y-12">
+  <div class="group relative">
+  <p class="mt-2 text-base font-semibold text-gray-900">{skill.name}</p>
+
+    <div class="relative h-40 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 px-4 flex">
+      <div className="m-2 text-lg font-small dark:text-black w-full flex-1">Progress: 10%
+        <div className="h-6 bg-gray-300 rounded-full dark:bg-gray-300">
+          <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500" style={{ width: '10%' }}></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>);
+
 const Home = () => {
+  const user = {
+    username: 'John Doe',
+    money: 1000,
+    experience: 100,
+    level: 1,
+  }
+
+
+
+
+  const skills = [{name: 'Frontend'}, {name: 'Backend'}, {name: 'Fullstack'}, {name: 'DevOps'}, {name: 'QA'}];
   return (
     <div>
       {/* Your existing content */}
@@ -36,62 +92,30 @@ const Home = () => {
         <div className="w-1/3 p-4 bg-gray-300 text-black h-screen ">
           <div className="flex items-center justify-center">
             <h1 className="text-4xl font-bold">Your Avatar:</h1>
+            <StickmanAnimation />
           </div>
-      
         </div>
         
         {/* Your new content goes here */}
         {/* Your new content */}
         <div className="w-1/3 p-4 bg-gray-300 flex h-screen" >
-          <div class="mx-1 max-w-2xl py-16 sm:py-4 lg:max-w-none lg:py-4 flex-1">
-            <h2 class="text-2xl font-bold text-gray-900">Collections</h2>
-
-            <div class="mt-6 space-y-12">
-              <div class="group relative">
-                <div class="relative h-40 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 px-4 flex">
-                  <div className="m-2 text-lg font-small dark:text-black w-full flex-1">Progress: 10%
-                    <div className="h-6 bg-gray-300 rounded-full dark:bg-gray-300">
-                      <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500" style={{ width: '10%' }}></div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-2 text-base font-semibold text-gray-900">Fullstack Developer</p>
-              </div>
-            </div>
-
-            <div class="mt-6 space-y-12">
-              <div class="group relative">
-                <div class="relative h-40 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 px-4 flex">
-                  <div className="m-2 text-lg font-small dark:text-black w-full flex-1">Progress: 10%
-                    <div className="h-6 bg-gray-300 rounded-full dark:bg-gray-300">
-                      <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500" style={{ width: '10%' }}></div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-2 text-base font-semibold text-gray-900">Frontend Developer</p>
-              </div>
-            </div>
-
-            <div class="mt-6 space-y-12">
-              <div class="group relative">
-                <div class="relative h-40 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 px-4 flex">
-                  <div className="m-2 text-lg font-small dark:text-black w-full flex-1">Progress: 10%
-                    <div className="h-6 bg-gray-300 rounded-full dark:bg-gray-300">
-                      <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500" style={{ width: '10%' }}></div>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-2 text-base font-semibold text-gray-900">Backend Developer</p>
-              </div>
-            </div>
+          <div className="mx-1 max-w-2xl py-16 sm:py-4 lg:max-w-none lg:py-4 flex-1 scrollableContainer" style={{overflowY: 'auto', height:'80vh'}}>
+            <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
+              <ul>
+              {skills.map((skill, index) => (<li key={index}> <ProgressCard skill={skill}  /> </li>))}
+              </ul>
+             
 
           </div>
         </div>
 
-
-        <div className="w-1/3 p-4 bg-gray-300 text-gray h-screen">Div 3
-        <div class="bb-8" onclick="">
+     
+        <div className="w-1/3 p-4 bg-gray-300 text-gray h-screen">
+ 
+        <div class="bb-8">
+        <PopupMessageBox/>
   		<div class="bb-8__head">
+       
     		<div class="bb-8__head__antenna"></div>
     		<div class="bb-8__head__antenna--longer"></div>
     		<div class="bb-8__head__top">
@@ -138,9 +162,11 @@ const Home = () => {
 		    <div class="bb-8__body__screw bb-8__body__screw--six"></div>
     	</div>
   		<div class="bb-8__body-shadow"></div>
-	</div></div>
+	</div>
+  </div>
       </div>
     </div>
+   
   );
 };
 
@@ -204,17 +230,13 @@ const Shop = () => {
         {/* Display 2 columns and 3 rows of product cards */}
         <div className="grid grid-cols-2 gap-8">
           {/* Product Card 1 */}
-          <ProductCard />
+          <ProductCard imageUrl={'images/Screenshot 2024-02-25 103647.png'}/>
           {/* Product Card 2 */}
-          <ProductCard />
+          <ProductCard imageUrl={'images/Screenshot 2024-02-25 103813.png'}/>
           {/* Product Card 3 */}
-          <ProductCard />
+          <ProductCard imageUrl={'images/Screenshot 2024-02-25 103905.png'}/>
           {/* Product Card 4 */}
-          <ProductCard />
-          {/* Product Card 5 */}
-          <ProductCard />
-          {/* Product Card 6 */}
-          <ProductCard />
+          <ProductCard imageUrl={'/images/Screenshot 2024-02-25 105708.png'}/>
         </div>
       </main>
       {/* Your existing content */}
@@ -224,11 +246,69 @@ const Shop = () => {
     </div>
   );
 };
+//////////////
+//stickman
+
+const StickmanAnimation = () => {
+  return (
+    <div id="animation" className="stickman">
+      <div className="row">
+        <div className="col-xs-12" style={{ width: '100%' }}>
+          <h1>Stickman Animation</h1>
+        </div>
+
+        <div id="animation" className="col-xs-12 col-sm-6">
+          <div className="stickman col-xs-12">
+            <div className="head">
+              <div className="eye"></div>
+              <div className="mouth"></div>
+              <div className="hair">
+                <div className="fringe"></div>
+              </div>
+              <div className="beard"></div>
+            </div>
+            <div className="torso">
+              <div className="shirt"></div>
+              <div className="left-arm">
+                <div className="sleeve"></div>
+                <div className="hand"></div>
+              </div>
+              <div className="right-arm">
+                <div className="sleeve"></div>
+                <div className="hand"></div>
+              </div>
+              <div className="left-leg">
+                <div className="pants"></div>
+                <div className="foot"></div>
+                <div className="shoe"></div>
+              </div>
+              <div className="right-leg">
+                <div className="pants"></div>
+                <div className="foot"></div>
+                <div className="shoe"></div>
+              </div>
+            </div>
+            <div className="shadow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 
 
 
 
+///////////
+
+
+
+
+
+
+
+//////////////////////////////
 
 ////////////////////
 const Details = () => {

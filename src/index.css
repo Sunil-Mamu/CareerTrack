@@ -642,3 +642,488 @@ body {
   color: #FFF3E7;
 }
 
+
+
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+body {
+  position: relative;
+  height: 100vh;
+  color: white;
+  background: #111111;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif; }
+
+h3 {
+  background: black;
+  margin: 0;
+  padding: 5px; }
+
+h5 {
+  padding: 10px; }
+
+input {
+  margin: 0 10px 0 15px; }
+
+.row {
+  width: 100%;
+  padding: 5%;
+  margin: 0; }
+
+.well {
+  height: 100%;
+  color: black; }
+
+#speed, .checkbox, .radio {
+  width: 100%; }
+
+.list-group {
+  max-height: 300px;
+  overflow: auto; }
+  .list-group .list-group-item {
+    border-radius: 0px;
+    justify-content: center; }
+  .list-group .list-group-item:hover {
+    cursor: pointer;
+    font-weight: bold; }
+
+@media (min-width: 426px) {
+  .row {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); } }
+
+#animation {
+  position: relative;
+  z-index: 0;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  height: 340px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1); }
+
+#accessories, #controls {
+  top: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.8); }
+
+#background-scroll {
+  position: absolute;
+  z-index: -20;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  height: 100%;
+  width: 100%;
+  background: url(https://opengameart.org/sites/default/files/swamp.png);
+  background-size: 500px 340px;
+  display: none;
+  animation: scrollEast 15s linear infinite; }
+
+.stickman {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 25px); }
+  .stickman .head {
+    position: absolute;
+    z-index: 25;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    height: 50px;
+    width: 50px;
+    background: #FCD0BD;
+    border-radius: 50px;
+    animation: head 1s infinite; }
+    .stickman .head .eye {
+      position: absolute;
+      z-index: 0;
+      top: 20px;
+      right: 10px;
+      bottom: auto;
+      left: auto;
+      height: 5px;
+      width: 5px;
+      background: #000000;
+      border-radius: 5px;
+      animation: eyes 5s linear 1s infinite;
+      display: none; }
+    .stickman .head .mouth {
+      position: absolute;
+      z-index: 10;
+      top: 35px;
+      right: 5px;
+      bottom: auto;
+      left: auto;
+      height: 5px;
+      width: 10px;
+      background: #000000;
+      border-radius: 5px;
+      transform: rotate(12deg);
+      animation: mouth 7s linear infinite;
+      display: none; }
+    .stickman .head .hair {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      height: 40px;
+      width: 30px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 30px;
+      background: #5B4432;
+      display: none; }
+      .stickman .head .hair .fringe {
+        position: absolute;
+        z-index: 0;
+        top: -10px;
+        right: auto;
+        bottom: auto;
+        left: 0;
+        height: 20px;
+        width: 50px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 15px;
+        background: linear-gradient(to top right, #5B4432 50%, #241b14 100%);
+        animation: hair 2s infinite; }
+    .stickman .head .beard {
+      position: absolute;
+      z-index: 0;
+      top: auto;
+      right: -5px;
+      bottom: -10px;
+      left: auto;
+      height: 30px;
+      width: 30px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background: #483628;
+      transform: rotate(-15deg);
+      display: none; }
+  .stickman .torso {
+    position: absolute;
+    z-index: 0;
+    top: 45px;
+    right: auto;
+    bottom: auto;
+    left: 20px;
+    height: 95px;
+    width: 5px;
+    background: #FCD0BD;
+    border-radius: 5px; }
+    .stickman .torso .shirt {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: -5px;
+      bottom: auto;
+      left: auto;
+      height: 100%;
+      width: 15px;
+      background: #cd4f39;
+      border-radius: 5px;
+      display: none; }
+    .stickman .torso .sleeve {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: -5px;
+      bottom: auto;
+      left: auto;
+      height: 50%;
+      width: 15px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 0;
+      background: #7b2f22;
+      display: none; }
+    .stickman .torso .hand {
+      position: absolute;
+      z-index: 0;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: -5px;
+      height: 13px;
+      width: 13px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 5px;
+      transform: rotate(30deg);
+      background: #FCD0BD; }
+    .stickman .torso .left-arm {
+      position: absolute;
+      z-index: -10;
+      top: 3px;
+      right: 22px;
+      bottom: auto;
+      left: auto;
+      height: 90px;
+      width: 5px;
+      background: #c9a697;
+      border-radius: 5px;
+      transform: rotate(30deg);
+      animation: walk-left-arm 2s infinite; }
+      .stickman .torso .left-arm .sleeve {
+        background: #6e2a1e; }
+      .stickman .torso .left-arm .hand {
+        background: #c9a697; }
+    .stickman .torso .right-arm {
+      position: absolute;
+      z-index: 20;
+      top: 3px;
+      right: auto;
+      bottom: auto;
+      left: 22px;
+      height: 90px;
+      width: 5px;
+      background: #FCD0BD;
+      border-radius: 5px;
+      transform: rotate(-30deg);
+      animation: walk-right-arm 2s infinite; }
+    .stickman .torso .pants {
+      position: absolute;
+      z-index: 15;
+      top: 0;
+      right: -5px;
+      bottom: auto;
+      left: auto;
+      height: 98%;
+      width: 15px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 0;
+      background: #336699;
+      display: none; }
+    .stickman .torso .foot {
+      position: absolute;
+      z-index: 0;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      width: 30px;
+      border-top-right-radius: 15px;
+      background: #FCD0BD; }
+    .stickman .torso .shoe {
+      position: absolute;
+      z-index: 10;
+      top: auto;
+      right: auto;
+      bottom: -5px;
+      left: auto;
+      height: 10px;
+      width: 30px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 3px;
+      background: black;
+      display: none;
+      animation: shoe 2s infinite;
+      box-shadow: -10px 5px 20px 3px rgba(0, 0, 0, 0.5); }
+    .stickman .torso .left-leg {
+      position: absolute;
+      z-index: -10;
+      top: 85px;
+      right: auto;
+      bottom: auto;
+      left: 30px;
+      height: 125px;
+      width: 5px;
+      background: #c9a697;
+      border-radius: 5px;
+      transform: rotate(-30deg);
+      animation: walk-left-leg 2s infinite; }
+      .stickman .torso .left-leg .pants {
+        background: #2d5b89; }
+      .stickman .torso .left-leg .foot {
+        background: #c9a697; }
+      .stickman .torso .left-leg .shoe {
+        animation-delay: 1s; }
+    .stickman .torso .right-leg {
+      position: absolute;
+      z-index: 0;
+      top: 85px;
+      right: 30px;
+      bottom: auto;
+      left: auto;
+      height: 125px;
+      width: 5px;
+      background: #FCD0BD;
+      border-radius: 5px;
+      transform: rotate(30deg);
+      animation: walk-right-leg 2s infinite; }
+  .stickman .shadow {
+    position: absolute;
+    z-index: -15;
+    top: 240px;
+    right: -60px;
+    bottom: auto;
+    left: auto;
+    height: 1px;
+    width: 200px;
+    background: transparent;
+    box-shadow: 0px 20px 20px 3px rgba(0, 0, 0, 0.5);
+    animation: shadow 1s infinite;
+    display: none; }
+
+@keyframes head {
+  0% {
+    top: 0px;
+    transform: rotate(0deg); }
+  50% {
+    top: 5px;
+    transform: rotate(5deg); } }
+
+@keyframes eyes {
+  5% {
+    height: 0px; }
+  10% {
+    height: 5px; } }
+
+@keyframes mouth {
+  5% {
+    width: 5px; }
+  10% {
+    width: 10px; } }
+
+@keyframes hair {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(-10deg); } }
+
+@keyframes walk-left-arm {
+  0% {
+    transform: rotate(30deg);
+    right: 22px; }
+  50% {
+    transform: rotate(-30deg);
+    right: -22px; }
+  100% {
+    transform: rotate(30deg);
+    right: 22px; } }
+
+@keyframes walk-right-arm {
+  0% {
+    transform: rotate(-30deg);
+    left: 22px; }
+  50% {
+    transform: rotate(30deg);
+    left: -22px; }
+  100% {
+    transform: rotate(-30deg);
+    left: 22px; } }
+
+@keyframes walk-left-leg {
+  0% {
+    transform: rotate(-30deg);
+    left: 30px; }
+  50% {
+    transform: rotate(30deg);
+    left: -30px; }
+  100% {
+    transform: rotate(-30deg);
+    left: 30px; } }
+
+@keyframes walk-right-leg {
+  0% {
+    transform: rotate(30deg);
+    right: 30px; }
+  50% {
+    transform: rotate(-30deg);
+    right: -30px; }
+  100% {
+    transform: rotate(30deg);
+    right: 30px; } }
+
+@keyframes shoe {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: rotate(-15deg); }
+  50% {
+    transform: rotate(15deg); }
+  75% {
+    transform: rotate(-15deg); } }
+
+@keyframes shadow {
+  0% {
+    right: -60px;
+    width: 200px; }
+  33% {
+    right: -50px;
+    width: 180px; }
+  66% {
+    right: -60px;
+    width: 200px; } }
+
+@keyframes scrollEast {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -500px 0; } }
+
+@keyframes scrollWest {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -500px 0; } }
+.scrollable-container {
+  height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+.popup-container {
+  position: relative;
+  display: inline-block;
+}
+
+.popup-box {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color: #000000;
+}
+
+.popup-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #fff transparent transparent transparent;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
